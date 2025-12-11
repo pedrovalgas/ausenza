@@ -30,7 +30,7 @@ public class SolicitacaoAusencia {
     private TipoAusencia tipoAusencia;
 
     @Enumerated(EnumType.STRING)
-    private StatusSolicitacao statusSolicitacao;
+    private StatusSolicitacao statusSolicitacao = StatusSolicitacao.PENDENTE;
 
     @ManyToOne
     @JoinColumn(name = "funcionario_id")
