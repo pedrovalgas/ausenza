@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -75,7 +76,12 @@ public class SolicitacaoAusenciaService {
         return mapper.toDetalhes(repository.save(solicitacao));
     }
 
-
+    public List<SolicitacaoAusenciaDetalhes> listarPendentes() {
+        return repository.findByStatusSolicitacao(StatusSolicitacao.PENDENTE)
+                .stream()
+                .map(mapper::toDetalhes)
+                .toList();
+    }
 
 
 }

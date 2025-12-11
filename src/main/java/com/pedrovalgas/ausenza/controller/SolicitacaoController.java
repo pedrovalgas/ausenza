@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/solicitacoes")
 @RequiredArgsConstructor
@@ -28,6 +30,11 @@ public class SolicitacaoController {
     @PostMapping("/{id}/recusar")
     public ResponseEntity<SolicitacaoAusenciaDetalhes> recusarSolicitacao(@PathVariable Long id){
         return ResponseEntity.ok(service.recusarSolicitacao(id));
+    }
+
+    @GetMapping("/pendentes")
+    public ResponseEntity<List<SolicitacaoAusenciaDetalhes>> listarPendentes(){
+        return ResponseEntity.ok(service.listarPendentes());
     }
 
 }
