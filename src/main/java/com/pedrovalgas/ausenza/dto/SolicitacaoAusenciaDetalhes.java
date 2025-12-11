@@ -6,5 +6,5 @@ import com.pedrovalgas.ausenza.model.TipoAusencia;
 
 import java.time.LocalDate;
 
-public record SolicitacaoAusenciaDetalhes(Long id, LocalDate dataInicio, LocalDate dataFim, String observacao, TipoAusencia tipoAusencia, StatusSolicitacao statusSolicitacao, Funcionario funcionario) {
+public record SolicitacaoAusenciaDetalhes(Long id, LocalDate dataInicio, LocalDate dataFim, String observacao, TipoAusencia tipoAusencia, StatusSolicitacao statusSolicitacao, FuncionarioDetalhesResponse funcionario) {
 }
